@@ -7,7 +7,7 @@ on:
 
 jobs:
   self-checks:
-    name: solver self-checks (ИТОГ: ALL PASS)
+    name: "solver self-checks (ALL PASS expected)"
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
