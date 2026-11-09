@@ -1,4 +1,54 @@
-# ИГНИЦИЯ — солвер жёсткого тепломассопереноса (BDF2 + BiCGSTAB + инварианты 10⁻¹⁶)
+<a id="readme-top"></a>
+<!-- best-readme-template -->
+<div align="center">
+
+<h1 align="center">ИГНИЦИЯ — солвер жёсткого тепломассопереноса (BDF2 + BiCGSTAB + инварианты 10⁻¹⁶)</h1>
+
+<p align="center">
+  Солвер жёсткого тепломассопереноса на чистом NumPy: BDF2 + BiCGSTAB с предобуславливателем, адаптивный шаг и контроль инвариантов.
+  <br />
+  <br />
+  <a href="https://github.com/Bezooom/ignition-solver/tree/HEAD/docs"><strong>Документация »</strong></a> · <a href="https://github.com/Bezooom/ignition-solver/issues/new?labels=bug">Сообщить об ошибке</a> · <a href="https://github.com/Bezooom/ignition-solver/issues/new?labels=enhancement">Предложить улучшение</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Bezooom/ignition-solver/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Bezooom/ignition-solver/ci.yml?style=for-the-badge&label=CI&logo=githubactions&logoColor=white" alt="CI" /></a>
+  <a href="https://github.com/Bezooom/ignition-solver/blob/HEAD/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License" /></a>
+  <a href="https://github.com/Bezooom/ignition-solver/stargazers"><img src="https://img.shields.io/github/stars/Bezooom/ignition-solver?style=for-the-badge" alt="Stars" /></a>
+  <a href="https://github.com/Bezooom/ignition-solver/commits"><img src="https://img.shields.io/github/last-commit/Bezooom/ignition-solver?style=for-the-badge" alt="Last commit" /></a>
+  <a href="https://github.com/Bezooom/ignition-solver/issues"><img src="https://img.shields.io/github/issues/Bezooom/ignition-solver?style=for-the-badge" alt="Issues" /></a>
+</p>
+
+</div>
+
+<details open>
+<summary><b>📑 Содержание</b></summary>
+
+- [📖 О проекте](#-о-проекте)
+- [Результаты (полный лог — в docs/VERIFICATION.md)](#результаты-полный-лог--в-docsverificationmd)
+- [Мотивация](#мотивация)
+- [🧱 Технологии (Built With)](#-технологии-built-with)
+- [Быстрый старт](#быстрый-старт)
+- [Задача](#задача)
+- [Архитектура солвера](#архитектура-солвера)
+- [Как это работает (выжимка)](#как-это-работает-выжимка)
+- [Производительность](#производительность)
+- [Документация](#документация)
+- [Структура](#структура)
+- [Честные ограничения](#честные-ограничения)
+- [Воспроизводимость](#воспроизводимость)
+- [Происхождение](#происхождение)
+- [References](#references)
+- [🗺️ Дорожная карта](#-дорожная-карта)
+- [🤝 Участие в разработке](#-участие-в-разработке)
+- [Лицензия](#лицензия)
+- [🌍 English summary](#-english-summary)
+- [📬 Контакты](#-контакты)
+- [🙏 Благодарности](#-благодарности)
+
+</details>
+
+## 📖 О проекте
 
 > **Серия «Матчасть»** — ответ на «Матчасти нет / это программно невозможно».
 > Две половины доказательства: **[ТАКТ](https://github.com/Bezooom/takt-rt)** —
@@ -47,6 +97,13 @@ Strata (квантованный Qwen, IQ3) на не самом дорогом 
 в которой ошибка округления на критическом режиме меняет сценарий (взрыв /
 гашение). Ответ строится не словами, а матрицей приёмки: каждая строка —
 проверяемый факт из логов.
+
+## 🧱 Технологии (Built With)
+
+<p>
+<img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+<img src="https://img.shields.io/badge/NumPy-2-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" />
+</p>
 
 ## Быстрый старт
 
@@ -179,6 +236,42 @@ ignition-solver/
   BIT 29, 1989 — PI-регулятор шага.
 - Frank-Kamenetskii, D.A. *Diffusion and Heat Exchange in Chemical Kinetics*.
 
+## 🗺️ Дорожная карта
+
+- [ ] Разбить скрипт на модуль и тесты
+- [ ] Сравнение с SciPy `solve_ivp` (BDF) в отдельном отчёте
+
+Полный список задач и идей — в [issues](https://github.com/Bezooom/ignition-solver/issues).
+
+## 🤝 Участие в разработке
+
+Вклад в проект приветствуется. Если есть идея, как сделать лучше, откройте issue или pull request:
+
+1. Сделайте форк репозитория
+2. Создайте ветку (`git checkout -b feature/my-idea`)
+3. Сделайте коммит (`git commit -m 'feat: my idea'`)
+4. Отправьте ветку (`git push origin feature/my-idea`)
+5. Откройте pull request
+
 ## Лицензия
 
 MIT — см. [LICENSE](LICENSE).
+
+## 🌍 English summary
+
+Self-contained stiff heat/mass-transfer solver in pure NumPy (no SciPy): BDF2 time stepping, preconditioned BiCGSTAB, PI step control and invariant checks, with an acceptance table printed by one run (`python3 stiff_thermal_solver.py`, about 3 minutes on CPU, ends with `ALL PASS`). The same run is executed in GitHub Actions. Part of the “Matchast” series together with takt-rt.
+
+## 📬 Контакты
+
+**Павел Наумов** (Bezooom) — [naumovai.ru](https://naumovai.ru) · [X @Bezooooom](https://x.com/Bezooooom) · naumov122@gmail.com
+
+Проект: [https://github.com/Bezooom/ignition-solver](https://github.com/Bezooom/ignition-solver)
+
+## 🙏 Благодарности
+
+- [ТАКТ / takt-rt](https://github.com/Bezooom/takt-rt) — вторая половина серии «Матчасть»
+- [NumPy](https://numpy.org)
+- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+- [Shields.io](https://shields.io)
+
+<p align="right">(<a href="#readme-top">наверх</a>)</p>
